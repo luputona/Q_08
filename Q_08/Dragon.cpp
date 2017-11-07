@@ -3,6 +3,7 @@
 #include"Info.h"
 #include<iostream>
 #include<cstring>
+#include<ctime>
 
 Dragon::Dragon()
 {
@@ -12,7 +13,8 @@ Dragon::Dragon(char *_name, char *_skill1_name, char *_skill2_name, char *_skill
 m_skill1(_skill1),
 m_skill2(_skill2),
 m_skill3(_skill3),
-m_nHp(_hp)
+m_nHp(_hp),
+m_dragonDice(0)
 {
 	int len = strlen(_name) + 1;
 	m_name = new char[len];
@@ -34,7 +36,7 @@ m_nHp(_hp)
 void Dragon::ShowStatus()const
 {
 	cout << m_name << "의 스테이터스" << endl;
-	cout << "HP :" << m_nHp << ' ' << "\n스킬1 :" << m_skill1_name << ' ' << "\n스킬2 : " << m_skill2_name << ' ' << "\n스킬3 : " << m_skill3_name << endl<<endl;
+	cout << "HP :" << m_nHp << ' ' << "\n스킬1 : " << m_skill1_name << ' ' << "\n스킬2 : " << m_skill2_name << ' ' << "\n스킬3 : " << m_skill3_name << endl<<endl;
 }
 int Dragon::GetSkillDamage1() const
 {
@@ -67,4 +69,10 @@ char *Dragon::GetName()const
 int Dragon::Hp()
 {
 	return m_nHp;
+}
+int Dragon::Dice()
+{
+	//srand(time(NULL));
+	
+	return m_dragonDice = (rand() % 6) + 1;
 }

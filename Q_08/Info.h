@@ -26,6 +26,7 @@ private:
 	int m_skill2;
 	int m_skill3;
 	int m_nHp;
+	int m_heroDice;
 	char *m_name;
 	char *m_skill1_name;
 	char *m_skill2_name;
@@ -43,6 +44,7 @@ public:
 	char *GetSkillName3() const;
 	char *GetName()const;
 	int Hp();
+	int Dice();
 };
 
 class Dragon
@@ -52,6 +54,7 @@ private:
 	int m_skill2;
 	int m_skill3;
 	int m_nHp;
+	int m_dragonDice;
 	char *m_name;
 	char *m_skill1_name;
 	char *m_skill2_name;
@@ -69,23 +72,23 @@ public:
 	char *GetSkillName3() const;
 	char *GetName()const;
 	int Hp();
+	int Dice();
 };
 class Manager
 {
 private:
 	Hero *m_hero;
 	Dragon *m_dragon;
+	int m_randomAttack;
+	int m_flag;
 public:
-	Manager::Manager()
-	{
-		m_hero = new Hero("한조대기중", "갈래화살", "주먹치기", "화살쏘기", 200, 50, 100, 1000);
-		m_dragon = new Dragon("투명드래곤", "브레스", "할퀴기", "꼬리치기", 300, 100, 200, 1500);
-	}
-	void ShowInfomation()const
-	{
-		m_hero->ShowStatus();
-		m_dragon->ShowStatus();
-	}
+	Manager();
+
+	void ShowInfomation()const;
+
+	void Update();
+
+	~Manager();
 
 };
 

@@ -3,14 +3,14 @@
 #include<iostream>
 #include<cstring>
 #include<time.h>
+#include<Windows.h>
 #include"Info.h"
 
 using namespace std;
-
 
 void main()
 {
 	Manager *mgr = new Manager();
 
-	mgr->ShowInfomation();
+	mgr->Update();
 }
